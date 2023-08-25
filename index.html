@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="jaava.css">
+</head>
+<body>
+    <h1 class="h1">TO-DO List:</h1>
+   <div class="padding">
+  <!-- <form id="form"> -->
+    <div id="form">
+    <div id="first">
+        <input type="text" placeholder="Enter your task here" id="second"></input> 
+   <div class="fourth"> <button id="third">+</button></div></div> 
+<div class="ul">
+    <ul id="my_task">
+     
+    </ul>
+</div>
+</div>
+<!-- </form>  -->
+
+</div>
+
+    <script>
+ 
+        const my_list = document.querySelector('ul')
+        const my_button = document.querySelector('button')
+        const my_input = document.querySelector('input')
+ 
+        my_button.addEventListener('click',()=>{
+            
+            const txt = my_input.value; //Get the text from input field
+            my_input.value = "" //clear the input field
+ 
+          
+            const my_list_element = document.createElement('li') //create the list element
+            const text_node = document.createTextNode(txt) //create a text node 
+            my_list_element.append(text_node); // add the text to the list element
+ 
+            const my_delete_button = document.createElement('button') //create a button
+            const delete_text_node = document.createTextNode("❌")// create node with text 'delete'
+            my_delete_button.append(delete_text_node) //add the text to the button
+            my_delete_button.style.marginLeft = "100px" // set the leftmargin of the button as 100px to maintain distance 
+ 
+            my_list_element.append(my_delete_button) // add the delete button to the list element
+            
+            my_delete_button.addEventListener('click',()=>{ //add a event listener which deletes "my_list_element" when the button is clicked
+                my_list.removeChild(my_list_element)
+            })
+ 
+            my_list.appendChild(my_list_element) //add the list element to the list
+ 
+        })
+    </script>
+</body>
+</html>
